@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>資料結構</title>
+  <meta name="description" content="簡潔的單頁 HTML 範例，含導覽、特色與聯絡表單。" />
+  <style>
+    :root{
+      --bg:#f7fafc; --card:#ffffff; --muted:#6b7280; --brand:#2563eb;
+      --radius:14px; --container:1100px;
+    }
+    *{box-sizing:border-box}
+    body{font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans TC", "Helvetica Neue", Arial; margin:0; background:var(--bg); color:#111827; -webkit-font-smoothing:antialiased}
+    .container{max-width:var(--container); margin:0 auto; padding:24px}
+    header{background:linear-gradient(90deg, rgba(255,255,255,0.8), rgba(255,255,255,0.7)); backdrop-filter: blur(6px); position:sticky; top:0; z-index:30; border-bottom:1px solid rgba(15,23,42,0.04)}
+    .nav{display:flex; align-items:center; justify-content:space-between; gap:12px}
+    .brand{font-weight:700; font-size:18px}
+    nav a{margin-left:14px; text-decoration:none; color:var(--muted); font-size:15px}
+    nav a:hover{color:var(--brand)}
+
+    /* Hero */
+    .hero{display:grid; grid-template-columns:1fr; gap:24px; align-items:center; padding:56px 0}
+    .hero-card{background:var(--card); border-radius:var(--radius); padding:28px; box-shadow:0 8px 22px rgba(15,23,42,0.06)}
+    .hero h1{font-size:34px; margin:0 0 12px}
+    .hero p{margin:0 0 18px; color:var(--muted)}
+    .cta{display:inline-block; padding:12px 18px; background:var(--brand); color:white; border-radius:10px; text-decoration:none}
+
+    /* Features */
+    .features{display:grid; grid-template-columns:repeat(1,1fr); gap:16px; margin-top:24px}
+    .feature{background:linear-gradient(180deg, rgba(255,255,255,1), rgba(248,250,252,1)); padding:18px; border-radius:12px; border:1px solid rgba(15,23,42,0.04)}
+    .feature h3{margin:0 0 6px}
+    .muted{color:var(--muted)}
+
+    /* Contact */
+    form{display:grid; gap:10px}
+    input, textarea{padding:12px; border-radius:10px; border:1px solid #e6eef8; font-size:14px}
+    button{padding:10px 14px; border-radius:10px; border:0; background:linear-gradient(90deg,var(--brand), #7c3aed); color:#fff; cursor:pointer}
+    button:disabled{opacity:0.6}
+
+    footer{padding:24px 0; color:var(--muted); font-size:14px}
+
+    /* Responsive */
+    @media(min-width:800px){
+      .hero{grid-template-columns:1fr 420px}
+      .features{grid-template-columns:repeat(3,1fr)}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">我的單頁範例</div>
+      <nav>
+        <a href="#home">首頁</a>
+        <a href="#features">特色</a>
+        <a href="#about">關於</a>
+        <a href="#contact">聯絡</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" id="home">
+    <section class="hero">
+      <div class="hero-card">
+        <h1>簡潔、漂亮的單頁 HTML 範例</h1>
+        <p class="muted">這個檔案不需任何外部套件即可使用。適合作為作品頁或專案啟始模板，包含響應式版面與簡易表單驗證。</p>
+        <a class="cta" href="#contact">馬上聯絡</a>
+
+        <div class="features" style="margin-top:20px">
+          <div class="feature">
+            <h3>響應式</h3>
+            <p class="muted">自動在手機、平板、桌面間調整版面。</p>
+          </div>
+          <div class="feature">
+            <h3>單一檔案</h3>
+            <p class="muted">HTML + CSS + JS 合在一起，方便複製與分享。</p>
+          </div>
+          <div class="feature">
+            <h3>易於修改</h3>
+            <p class="muted">註解簡潔，改樣式或文字都非常直覺。</p>
+          </div>
+        </div>
+      </div>
+
+      <aside class="hero-card" aria-labelledby="preview-title">
+        <h2 id="preview-title">預覽區</h2>
+        <p class="muted">可放置作品截圖、影片或產品圖。</p>
+        <div style="height:200px; margin-top:12px; border-radius:10px; background:linear-gradient(135deg,#eff6ff,#eef2ff); display:flex; align-items:center; justify-content:center; color:var(--muted)">圖片／截圖</div>
+      </aside>
+    </section>
+
+    <section id="features" style="margin-top:30px">
+      <h2>詳細特色</h2>
+      <p class="muted">下面展示更多常見的版塊與元件。</p>
+      <div class="features" style="margin-top:12px">
+        <div class="feature"><h3>可擴充性</h3><p class="muted">容易接入後端 API、加入路由或使用模板引擎。</p></div>
+        <div class="feature"><h3>表單驗證</h3><p class="muted">內建簡單前端驗證（示範）。</p></div>
+        <div class="feature"><h3>可部署</h3><p class="muted">可直接部署到 GitHub Pages、Netlify 等平台。</p></div>
+      </div>
+    </section>
+
+    <section id="about" style="margin-top:30px">
+      <h2>關於這個範本</h2>
+      <p class="muted">我用最少的程式碼做出可立即上線的作品頁。你可以告訴我想增加的內容（例如：作品集、部落格串接、管理後台），我會幫你擴充。</p>
+    </section>
+
+    <section id="contact" style="margin-top:30px">
+      <h2>聯絡我們</h2>
+      <p class="muted">填寫以下表單（範例為前端驗證，送出不會真的發送）。</p>
+      <form id="contactForm" onsubmit="return handleSubmit(event)">
+        <input id="name" type="text" placeholder="姓名" required />
+        <input id="email" type="email" placeholder="電子郵件" required />
+        <textarea id="message" rows="6" placeholder="訊息（至少10字）" minlength="10" required></textarea>
+        <div style="display:flex; gap:10px; justify-content:flex-end; margin-top:6px">
+          <button type="reset">重設</button>
+          <button id="sendBtn" type="submit">送出</button>
+        </div>
+        <div id="feedback" aria-live="polite" style="margin-top:8px;color:var(--muted)"></div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="container">
+    <div style="border-top:1px solid rgba(15,23,42,0.04); padding-top:16px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap">
+      <div>© <span id="year"></span> 我的網站</div>
+      <div style="color:var(--muted); font-size:13px">如需下載此檔案，請將頁面另存為 single_page.html</div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function handleSubmit(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      const feedback = document.getElementById('feedback');
+      const btn = document.getElementById('sendBtn');
+
+      if(name.length < 2){ feedback.textContent = '請輸入有效姓名。'; return false; }
+      if(!/^\S+@\S+\.\S+$/.test(email)){ feedback.textContent = '請輸入有效電子郵件。'; return false; }
+      if(message.length < 10){ feedback.textContent = '訊息請至少 10 字。'; return false; }
+
+      btn.disabled = true;
+      feedback.textContent = '已通過驗證（模擬送出）...';
+
+      // 範例模擬非同步送出（實際應用請替換為 fetch）
+      setTimeout(()=>{
+        feedback.textContent = '感謝你的訊息！我們會盡快回覆。';
+        btn.disabled = false;
+        document.getElementById('contactForm').reset();
+      }, 900);
+
+      return false;
+    }
+  </script>
+</body>
+</html>
